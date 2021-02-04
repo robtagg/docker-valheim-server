@@ -72,6 +72,5 @@ The server data will be persisted in the chosen paths on the host set by `<HOST_
 
 
 # Todo
-====================
 
 * Run the server as a steam user rather than root
