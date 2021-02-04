@@ -33,8 +33,8 @@ docker run --name Valheim -i -d \
 	-p 2456-2458:2456-2458/udp \
 	--env 'SERVER_NAME=My Valheim Server' \
 	--env 'SERVER_PASSWORD=password123' \
-	--volume <HOST_STORAGE_DATA_LOCATION>:/home/steam/valheim/data:rw \
-	--volume <HOST_STORAGE_CONFIG_LOCATION>:/home/steam/.config/unity3d/IronGate/Valheim:rw \
+	--volume <HOST_STORAGE_DATA_LOCATION>:/valheim/data:rw \
+	--volume <HOST_STORAGE_CONFIG_LOCATION>:/root/.config/unity3d/IronGate/Valheim:rw \
 	taggr/docker-valheim-server:latest
 ```
 
