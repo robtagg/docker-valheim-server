@@ -51,7 +51,7 @@ services:
       - "2456-2458:2456-2458/udp"
     volumes:
       - "<HOST_STORAGE_DATA_LOCATION>:/valheim/data:rw"
-      - "<HOST_STORAGE_CONFIG_LOCATION>:~/.config/unity3d/IronGate/Valheim:rw"
+      - "<HOST_STORAGE_CONFIG_LOCATION>:/root/.config/unity3d/IronGate/Valheim:rw"
     network_mode: "bridge"
     restart: unless-stopped
     tty: true
