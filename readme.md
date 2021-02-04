@@ -69,3 +69,9 @@ Just restart the docker container to update the server
 ## Server Data Persistance
 
 The server data will be persisted in the chosen paths on the host set by `<HOST_STORAGE_DATA_LOCATION>` and `<HOST_STORAGE_CONFIG_LOCATION>` when starting the container.
+
+
+# Todo
+====================
+
+* Run the server as a steam user rather than root
