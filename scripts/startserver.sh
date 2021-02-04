@@ -6,7 +6,7 @@ cd /valheim/data && ./valheim_server.x86_64 -name "${SERVER_NAME}" -console +por
 
 export LD_LIBRARY_PATH=$templdpath
 
-echo "Server started"
+echo "Starting server"
 echo ""
 read -p "Press RETURN to stop server"
 echo 1 > server_exit.drp
