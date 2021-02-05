@@ -1,13 +1,13 @@
 # Valheim Docker Server
 
-Starts a Valheim dedicated server inside of a docker container. The server will be available on `<server_ip>:2456`
+Starts a Valheim dedicated server inside of a docker container. The server will be available on `<server_ip>:2457`(Server Ip + 1)
 The game and server is still in early access and so I'll update this container as more information on the server is released.
 
-Sometimes the server can take a while to show up in the community server list in game. If you can find then try the following:
+Sometimes the server can take a while to show up in the community server list in game. If you can't find then try the following:
 
 * In Steam go to view > servers
 * Click the "Add A Server" button in the bottom right
-* Type in the server Ip and selected port. `<server_ip>:2456`
+* Type in the server Ip and selected port. `<server_ip>:2457` (Server Ip + 1)
 * Click "Add this address to favorites"
 * Hit the "Refresh" button and your server should be displayed in the list
 
@@ -45,8 +45,7 @@ version: '3'
 
 services:
   valheim-server:
-    build:
-      context: .
+    image: taggr/docker-valheim-server:latest
     ports:
       - "2456-2458:2456-2458/udp"
     volumes:
