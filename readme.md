@@ -17,10 +17,11 @@ It can take a few minutes for the server to be available while it downloads the 
 
 You can configure some basic server options using the below ENV vars
 
-| Variable        | Description                 |
-|-----------------|-----------------------------|
-| SERVER_NAME     | Sets the name of the server |
-| SERVER_PASSWORD | Sets the server password    |
+| Variable        | Description                                     |
+|-----------------|-------------------------------------------------|
+| SERVER_NAME     | Sets the name of the server. Default: My server |
+| SERVER_PASSWORD | Sets the server password. Default: password123  |
+| SERVER_WORLD    | Sets the required world ID. Default: Dedicated  |
 
 ## Starting the server
 
@@ -29,7 +30,7 @@ Replace `<HOST_STORAGE_DATA_LOCATION>` and `<HOST_STORAGE_CONFIG_LOCATION>` with
 ### Docker
 
 ```
-docker run --name Valheim -i -d \
+docker run --name Valheim -d \
 	-p 2456-2458:2456-2458/udp \
 	--env 'SERVER_NAME=My Valheim Server' \
 	--env 'SERVER_PASSWORD=password123' \
@@ -49,11 +50,10 @@ services:
     ports:
       - "2456-2458:2456-2458/udp"
     volumes:
-      - "<HOST_STORAGE_DATA_LOCATION>:/valheim/data:rw"
+      - "<HOST_STORAGE_DATA_LOCATION>:/root/valheim/data:rw"
       - "<HOST_STORAGE_CONFIG_LOCATION>:/root/.config/unity3d/IronGate/Valheim:rw"
     network_mode: "bridge"
     restart: unless-stopped
-    tty: true
     environment:
       - SERVER_NAME=My Valheim Server
       - SERVER_PASSWORD=password123
@@ -68,8 +68,3 @@ Just restart the docker container to update the server
 ## Server Data Persistance
 
 The server data will be persisted in the chosen paths on the host set by `<HOST_STORAGE_DATA_LOCATION>` and `<HOST_STORAGE_CONFIG_LOCATION>` when starting the container.
-
-
-# Todo
-
-* Run the server as a steam user rather than root
